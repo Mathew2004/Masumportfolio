@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%block title%}  {%endblock%}</title>
+    <link rel="icon" type="image/x-icon" href="/media/hero.jpeg">
+    <!--CSS-->
+    {% load static %}
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/style.scss">
+    <!--Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!--Bootstrap CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+   
+   
+    <!--AOS CDN-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+
+<body onload="load()">
+
+    <!--Preloader-->
+    <div class="preloader">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+
+
+        </div>
+    </div>
+
+
+
+    <style>
+        body {
+            background-color: #212529;
+            color: #fff;
+           background-image: linear-gradient(to left, rgb(8, 8, 14),rgba(15, 24, 31, 0.575)) 
+        }
+        @media screen and (max-width: 880px) {
+            body{
+                width: 100%;
+            }
+        }
+
+        /**Preloader**/
+        .preloader {
+            position: fixed;
+            top: 0;
+            z-index: 99999;
+            height: 100vh;
+            width: 100%;
+            background: #000;
+
+            background-size: cover;
+        }
+
+        .box div {
+            width: 50px;
+            height: 50px;
+            
+            border: 3px solid #0994ff82;
+            border-radius: 50%;
+            transform: rotate(39deg);
+            position: absolute;
+            top: 40%;
+            left: 1%;
+        }
+
+        .box div:nth-child(1) {
+            top: 50%;
+            left: 55%;
+            animation: animate 5s linear infinite;
+            background-color: #ff0984d2;
+            border: 3px solid #ff0984d2;
+        }
+
+        .box div:nth-child(2) {
+            top: 50%;
+            left: 45%;
+            animation: animate 5s linear infinite;
+            border: 3px solid #fbff09ea;
+            background-color: #fbff09ea;
+
+        }
+
+        .box div:nth-child(3) {
+            top: 50%;
+            left: 35%;
+            animation: animate 5s linear infinite;
+            border: 3px solid #09e2ffea;
+            background-color: #09e2ffea;
+        }
+       
+
+        @keyframes animate {
+            0% {
+                transform: scale(0) translateY(0) rotate(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1) translateY(-90px) rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+
+        ::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        .navbar-dark {
+
+         
+            padding-bottom: 10px;
+            background-color: #212529;
+            background-image: linear-gradient(to left, rgb(8, 8, 14),rgba(15, 31, 28, 0.575))
+            
+
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+
+        @media (max-width: 991px) {
+
+            .px-3,
+            .mobile-nav {
+                margin-top: 10px;
+            }
+
+
+        }
+    </style>
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" aria-label="Offcanvas navbar large">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold mx-2" href="/">MASUM <span class="text-warning">ALI</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+                aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2"
+                aria-labelledby="offcanvasNavbar2Label">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbar2Label">EVAN<span class="text-warning">GEL</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item text-light">
+                            <a class="nav-link {% block homeactive %} {% endblock %} display-5 fw-bold mx-4 " aria-current="page"
+                                href="/"> <i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% block aboutactive %} {% endblock %} display-5 fw-bold  mx-4" href="/about"><i class="fa fa-user" aria-hidden="true"></i> About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% block projactive %} {% endblock %} display-5 fw-bold mx-4" href="/portfolio"><i class="ri-database-line"></i> Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% block contactactive %} {% endblock %} display-5 fw-bold mx-4" href="/contact"><i class="fa fa-phone" aria-hidden="true"></i> Contact</a>
+                        </li>
+
+                    </ul>
+                   <!-- Button to  trigger Login modal --
+                <a class="btn rounded-pill btn-primary mx-2 px-3" href="/login" type="submit">Login</a>
+                <a class="btn rounded-pill btn-danger px-3 " type="submit" href="/signup/">Join</a>
+                   -->
+                </div>
+               
+
+            </div>
+        </div>
+        </div>
+    </nav>
+
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message!</strong> {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+
+    {% block body %}
+
+    {% endblock %}
+
+
+<!--Footer-->
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="" class="mb-3 me-2 mb-md-0 fw-bold text-light text-decoration-none lh-1">
+          MASUM
+        </a>
+        <span class="mb-3 mb-md-0 text-body-light text-light">© ALL OF THE RIGHTS RESERVED</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-light" href="https://www.linkedin.com/in/md-masum-ali-b46194291/" target="_blank" ><i class="ri-linkedin-box-fill"></i></a></li>
+        <li class="ms-3"><a class="text-light" href="https://www.pinterest.com/billah222/" target="_blank" ><i class="ri-pinterest-fill"></i></a></li>
+        <li class="ms-3"><a class="text-light" href="https://www.facebook.com/billah222" target="_blank"><i class="ri-facebook-fill"></i></a></li>
+        <li class="ms-3"><a class="text-light" href="https://twitter.com/billah222" target="_blank"><i class="ri-twitter-fill"></i></a></li>
+        <li class="ms-3"><a class="text-light" href="https://www.instagram.com/masum_rahman_692" target="_blank"><i class="ri-instagram-fill"></i></a></li>
+      </ul>
+    </footer>
+</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+        
+    <script>
+        function load() {
+            document.querySelector(".preloader").style.display = "none";
+        }
+
+        AOS.init();
+
+    </script>
+  
+    {% block js %}
+
+    {% endblock %}
+
+
+</body>
+
+</html>

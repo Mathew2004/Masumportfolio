@@ -1,0 +1,102 @@
+{% extends 'basic.html' %}
+{%block title%} Portfolio | MASUM {%endblock%}
+{% block projactive %} active {% endblock %}
+
+{% load static %}
+
+{% block body %}
+{% load humanize %}
+
+<style>
+.header{
+    background-color: rgba(7, 7, 7, 0.219);
+    height: 200px;
+}
+.header h1{
+    text-align: center;
+    padding: 50px 0px;
+    color: #db5a89; background-image: -webkit-linear-gradient(45deg, #db5a89 27%, #f7cb7e 61%); background-clip: text; -webkit-background-clip: text; text-fill-color: transparent; -webkit-text-fill-color: transparent;
+    font-family: 'Saira Extra Condensed', sans-serif; 
+        
+    text-transform: uppercase;
+
+}
+
+
+</style>
+
+<div class="container">
+    <div class="header">
+            <h1 class="fw-bold display-4">Portfolio</h1>
+    </div>
+</div>
+
+
+
+<div class="b-example-divider"></div>
+
+<style>
+  .bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    /* background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity))!important; */
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  background: #11181A;
+  color: #ddd;
+  box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
+border: none;
+}
+.card{
+  border:none;
+}
+.card:hover{
+  transform: scale(1.1);
+  transition: .7s ease-in;
+}
+</style>
+
+<div class="container px-4 py-5" id="portfolio">
+       <div class="album py-5 bg-body-dark">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+      {%for work in portfolio%}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="/media/{{work.img}}" height="250px" width="auto"/>
+            <div class="card-body">
+              <h4 class="text-warning fx-3">{{work.name}}</h4>
+              <p class="card-text">{{work.description|slice:"0:100"}}...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="{{work.view}}" target="_blank" class="btn btn-sm btn-outline-light">View</a>
+                  
+                </div>
+                <small class="text-light">{{work.timestamp| naturaltime}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        {%endfor%}
+       
+      </div>
+    </div>
+  </div>
+
+      
+
+
+</div>
+
+
+
+{%endblock%}
+
+
+

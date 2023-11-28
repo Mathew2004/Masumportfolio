@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style_2.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="file:///E:/fontawesome/css/all.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="file:///E:/jquery.js"></script>
+  <title>BookStore- Evangel</title>
+  {% extends 'admin/header.html' %}
+</head>
+
+<body>
+
+
+
+  {% block body %}
+
+
+
+
+
+  <div class="container3">
+    <h1 class="text-white bg-dark text-center">
+      Information Form </h1>
+
+    <div class="col-lg-7 m-auto d-block">
+      <form action="/dashboard/" method="post" > {% csrf_token %}
+        <br>
+        <br>
+        {%for ab in about%}
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" class="form-control" value="{{ab.name}}">
+
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="description">Description(Under 500 words)* </label>
+          <textarea class="form-control" rows="8" cols="60" name="description"
+            Placeholder="Please type description (0-500 words) " >{{ab.des}}</textarea>
+        </div> <br>
+        <div class="form-group">
+          <label for="description">TypeWriter Text* </label>
+          <textarea class="form-control" rows="8" cols="10" name="typewrite"
+            Placeholder="Please type description (0-500 words) " >{{ab.typewrite}}</textarea>
+        </div> <br>
+        <input type="submit" name="submit" value="submit" class="btn btn-success">
+
+        <br>
+      </form>
+
+        <br>
+
+
+
+
+        <br>
+        <h1 class="text-white bg-dark text-center">
+          Change Image </h1>
+        <!---------->
+        <form action="/uploadPic/" method="POST" enctype="multipart/form-data"> {%csrf_token%}
+          <input type="file" name="file" style="width: 150px;"> <br>
+          <button class="btn btn-primary my-1" type="submit">Submit</button>
+        </form>
+      {%endfor%}
+    </div>
+  </div>
+
+
+
+
+
+
+  <br>
+  {%endblock%}
+</body>
+
+</html>

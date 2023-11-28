@@ -1,0 +1,156 @@
+{% extends 'basic.html' %}
+{%block title%} Home | MASUM {%endblock%}
+{% block homeactive %} active {% endblock %}
+
+{% load static %}
+
+{% block body %}
+{% load humanize %}
+
+<style>
+
+
+
+</style>
+
+
+{%for res in homeRes%}
+<div class="home-container">
+    <div class="side1">
+        <h4 > <span class="type"></span>  </h4>
+        <h2 class="">Hi, I am {{res.name}} </h2>
+        <p>
+            {{res.des}}
+
+        </p>
+        <a class="learn-more" href="/about/">Learn More about me</a>
+        <div class="links mt-5">
+          <a href="https://www.linkedin.com/in/md-masum-ali-b46194291/"><i class="ri-linkedin-line"></i></a>
+          <a href="https://www.facebook.com/billah222"><i class="ri-facebook-fill"></i></a>
+          <a href="https://www.instagram.com/masum_rahman_69"><i class="ri-instagram-fill"></i></a>
+          <a href="https://www.pinterest.com/billah222/"><i class="ri-pinterest-fill"></i></a>
+        </div>
+
+    </div>
+   
+    <div class="side2" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="300" data-aos-anchor="#example-anchor"
+    data-aos-offset="500"
+>
+        <img src="/media/{{res.img}}" alt="model">
+    </div>
+    {%endfor%}
+</div>
+
+    <div class="box-home">
+        <div></div>
+        <div></div>
+        <div></div>
+       
+        
+        
+
+    </div>
+
+</div>
+
+<div class="b-example-divider"></div>
+
+<style>
+  .bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    /* background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity))!important; */
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  background: #11181A;
+  color: #ddd;
+  box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75);
+border: none;
+}
+.card{
+  border:none;
+}
+.card:hover{
+  transform: scale(1.1);
+  transition: .7s ease-in;
+}
+</style>
+
+<div class="container px-4 py-5" id="portfolio">
+    <h2 class="pb-2 border-bottom" data-aos="zoom-in" data-aos-duration="1000">Recent Works</h2>
+       <div class="album py-5 bg-body-dark">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+      {%for work in portfolio%}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="media/{{work.img}}" height="250px" width="auto"/>
+            <div class="card-body">
+              <h4 class="text-warning fx-3">{{work.name}}</h4>
+              <p class="card-text">{{work.description|slice:"0:100"}}...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="{{work.view}}" target="_blank" class="btn btn-sm btn-outline-light">View</a>
+                  
+                </div>
+                <small class="text-light">{{work.timestamp| naturaltime}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        {%endfor%}
+       
+      </div>
+    </div>
+  </div>
+
+      
+
+    <center>
+        <a class="btn btn-outline-info" href="/portfolio" data-aos="fade-up">View All</a>
+        <br><br>
+    </center>
+
+</div>
+
+
+
+
+<div class="b-example-divider"></div>
+
+
+
+
+
+{%endblock%}
+
+
+
+{% block js %}
+
+<script src="{% static 'typed.js' %}"></script>
+
+<script>
+
+
+     var typed = new Typed('.type', {
+            strings: [
+                'Digital Marketer',
+                'SEO Specialist',
+                'Social Media Marketer'
+            ],
+            loop: true,
+            typeSpeed: 80,
+            backSpeed: 80,
+
+          });
+</script>
+
+
+{%endblock%}
